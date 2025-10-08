@@ -46,6 +46,13 @@ pipeline {
             }
         }
 
+        stage ('API Test') {
+            steps {
+                git branch: 'main', credentialsId: 'Login_Github', url: 'https://github.com/Ww1ll/tasks-api.test'
+                bat 'mvn test'
+            }
+        }
+
     }
 
 }
