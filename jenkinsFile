@@ -48,8 +48,10 @@ pipeline {
 
         stage ('API Test') {
             steps {
+                dir('api-test'){
                 git branch: 'main', credentialsId: 'Login_Github', url: 'https://github.com/Ww1ll/tasks-api.test'
-                bat 'mvn test'
+                bat 'mvn -f api-test/pom.xml clean test'
+                }
             }
         }
 
