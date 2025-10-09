@@ -68,7 +68,7 @@ pipeline {
             steps {
                 dir('functional-test'){
                 git branch: 'main', credentialsId: 'Login_Github', url: 'https://github.com/Ww1ll/tasks-front.tests'
-                bat 'mvn -f api-test/pom.xml clean test'
+                bat 'mvn -f front-test/pom.xml clean test'
                 }
             }
         }
