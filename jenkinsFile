@@ -57,7 +57,7 @@ pipeline {
 
         stage ('Deploy Frontend') {
             steps {
-                dir('frontend'){
+                dir('tasks-frontend'){
                     git branch: 'main', credentialsId: 'Login_Github', url: 'https://github.com/Ww1ll/tasks-frontend'
                     bat 'mvn clean package'
                     deploy adapters: [tomcat8(alternativeDeploymentContext: '', credentialsId: 'TomcatLogin', path: '', url: 'http://localhost:8082/')], contextPath: 'tasks', war: 'target/tasks.war'
