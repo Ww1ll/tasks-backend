@@ -64,14 +64,14 @@ pipeline {
                 }
             }
         }
-        //  stage ('Functional Test') {
-        //     steps {
-        //         dir('functional-test'){
-        //         git branch: 'main', credentialsId: 'Login_Github', url: 'https://github.com/Ww1ll/tasks-front.tests'
-        //         bat 'mvn -f front-test/pom.xml clean test'
-        //         }
-        //     }
-        // }
+         stage ('Functional Test') {
+            steps {
+                dir('functional-test'){
+                git branch: 'main', credentialsId: 'Login_Github', url: 'https://github.com/Ww1ll/tasks-front.tests'
+                bat 'mvn -f front-test/pom.xml clean test'
+                }
+            }
+        }
         stage ('Deploy Prod') {
             steps {
                 bat 'docker-compose build'
